@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: #0a3d62;
+        }
+        .container{
+            width: 70%;
+            margin: auto;
+            text-align: center;
+        }
+        .Dice{
+            text-align: center;
+            display: inline-block;
+        }
+        h1{
+            margin: 30px;
+            font-family: 'Lobster', cursive;
+            text-shadow: 5px 0 #232931;
+            font-size: 6rem;
+             color: #4ECCA3;
+        }
+        p{
+            font-size: 2rem;
+            color: #00b894;
+            text-shadow: 1px 1px white;
+        }
+        button{
+            padding: 10px;
+            background-color: #035e4c;
+            color: white;
+            border: none;
+
+        }
+        img{
+            width: 75%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Ludo Game</h1>
+
+        <div class="Dice">
+            <p>Player 1</p>
+            <img src="images/dice1.png" alt="" id="my1">
+        </div>
+        <div class="Dice">
+            <p>Player 2</p>
+            <img src="images/dice6.png" alt="" id="my2">
+        </div>
+        <div>
+            <!-- <button onclick="mygame()">Click</button> -->
+        </div>
+    </div>
+
+    <script>
+        mygame = () => {
+        const play1 = Math.floor(Math.random() * 6) + 1;
+        const play1dice=`images/dice${play1}.png`;
+        document.getElementById("my1").setAttribute("src", play1dice);
+        
+
+        const play2 = Math.floor(Math.random() * 6) + 1;
+        const play2dice=`images/dice${play2}.png`;
+        document.getElementById("my2").setAttribute("src", play2dice);
+
+
+        if(play1 > play2){
+            document.querySelector("h1").innerHTML="Player 1 is win :--";
+        }else if(play1 < play2){
+            document.querySelector("h1").innerHTML="Player 2 is win :--";
+        }else{
+            document.querySelector("h1").innerHTML="Match Drow :--";
+        }
+        // document.addEventListener("keydown",mygame);
+        }
+        document.addEventListener("keydown",mygame);
+    </script>
+
+</body>
+</html>
